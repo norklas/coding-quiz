@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!-- Top container to hold high score link and timer -->
     <header class="container-top">
         <div>
             <a href="#" class="high-score">View high scores</a>
@@ -19,16 +20,19 @@
         </div>
     </header>
 
-    <div class="container-main">
-        <h1>Coding Quiz Challenge</h1>
-        <p>Try to answer the following code-related questions within the time limit.
-            <br>
-            Keep in mind that incorrect answers will
-            penalize your score/time
-            <br>
-            by ten seconds!
-        </p>
-        <button>Start Quiz</button>
+    <!-- Main container to hold all quiz questions/buttons-->
+    <div class="wrapper">
+        <div class="container-main">
+            <h1 class="title-h1">Coding Quiz Challenge</h1>
+            <p class="start-text">Try to answer the following code-related questions within the time limit.
+                <br>
+                Keep in mind that incorrect answers will
+                penalize your score/time
+                <br>
+                by ten seconds!
+            </p>
+            <button class="start-button">Start Quiz</button>
+        </div>
     </div>
 
     <script src="./assets/js/script.js"></script>
