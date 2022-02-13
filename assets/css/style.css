@@ -57,9 +57,11 @@ header {
 
 /* Header Styling Ends */
 
+/* Home Container Styling Starts */
+
 .home-container {
-  width: 450px;
-  height: 400px;
+  width: 30%;
+  height: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -82,10 +84,41 @@ header {
 .start-button {
   width: 150px;
   align-self: center;
-  border-radius: 25px;
+  border-radius: 15px;
   border-style: none;
   padding: 15px;
   font-size: 18px;
   background-color: #241654;
   color: white;
+}
+
+/* Home Container Styling Ends */
+
+/* Quiz Container Styling Starts */
+
+.quiz-container {
+  width: 30%;
+  height: 600px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.quiz-container button {
+  display: flex;
+  width: 150px;
+  background-color: #241654;
+  color: white;
+  border-radius: 15px;
+  border-style: none;
+  padding: 15px;
+  font-size: 18px;
+  margin: 10px 0 10px 0px;
+}
+
+.question-title {
+  font-size: 32px;
+  font-weight: bold;
+  align-self: flex-start;
 }
