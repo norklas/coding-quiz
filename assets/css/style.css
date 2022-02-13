@@ -36,95 +36,56 @@ img {
 
 /* CSS Styling Begins */
 
-body {
+* {
   font-family: sans-serif;
 }
 
-/* Top (high score/timer) container styling begins */
+/* Header Styling Begins */
 
-.container-top {
+header {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
-}
-
-.timer {
-  margin-right: 45px;
-  font-size: 14px;
 }
 
 .high-score {
-  margin-left: 45px;
-  text-decoration: none;
-  color: violet;
-  font-size: 14px;
+  margin: 20px 0 0 40px;
 }
 
-/* Top container styling ends */
+.timer-container {
+  margin: 20px 40px 0 0;
+}
 
-/* Main (quiz content) container styling begins */
+/* Header Styling Ends */
 
-.wrapper {
+.home-container {
+  width: 450px;
+  height: 400px;
   margin: 0 auto;
-  height: 700px;
-  width: 50vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
-.container-main {
-  display: flex;
-  flex-direction: column;
-  height: 30vh;
-}
-
-.container-main h1 {
-  font-size: 38px;
+.home-container h1 {
+  margin-bottom: 15px;
+  font-size: 40px;
   font-weight: bold;
 }
 
-.container-main p {
-  font-size: 22px;
+.home-container p {
+  font-size: 18px;
   line-height: 1.5;
-  margin: 10px 0 10px 0;
-}
-
-.container-main button {
-  padding: 8px 12px 8px 12px;
-  border-radius: 10px;
-  border: none;
-  margin-top: 10px;
-  background-color: #241654;
-  color: white;
-  font-size: 20px;
-}
-
-.container-main button:hover {
-  background-color: violet;
-}
-
-.answer-button {
-  align-self: flex-start;
-  width: 200px;
-  text-align: start;
-}
-
-.answer-style {
-  border-top: 1px solid grey;
-  align-self: flex-start;
-  text-align: left;
-  width: 100%;
-  font-size: 38px;
-  font-style: italic;
-  color: grey;
-  margin-top: 22px;
-  font-size: 28px;
-  padding-top: 10px;
+  margin-bottom: 15px;
 }
 
 .start-button {
-  width: 50%;
+  width: 150px;
   align-self: center;
+  border-radius: 25px;
+  border-style: none;
+  padding: 15px;
+  font-size: 18px;
+  background-color: #241654;
+  color: white;
 }

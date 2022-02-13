@@ -6,32 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Timed Coding Quiz</title>
+    <title>Coding Quiz</title>
 </head>
 
 <body>
-    <!-- Top container to hold high score link and timer -->
-    <header class="container-top">
-        <div>
-            <a href="#" class="high-score">View high scores</a>
+    <!-- High score link and timer display-->
+    <header>
+        <div class="high-score">
+            <a href="#">View high scores</a>
         </div>
-        <div>
-            <p class="timer">Time: 60</p>
+        <div class="timer-container">
+            Time: <span class="timer"></span>
         </div>
     </header>
 
-    <!-- Main container to hold all quiz questions/buttons-->
-    <div class="wrapper">
-        <div class="container-main">
-            <h1 class="title-h1">Coding Quiz Challenge</h1>
-            <p class="start-text">Try to answer the following code-related questions within the time limit.
-                <br>
-                Keep in mind that incorrect answers will
-                penalize your score/time
-                <br>
-                by ten seconds!
-            </p>
-            <button class="start-button">Start Quiz</button>
+    <!-- Main container with quiz start-->
+    <div class="home-container">
+        <h1>Coding Quiz Challenge</h1>
+        <p>Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will
+            penalize your score/time
+            by ten seconds!
+        </p>
+        <button class="start-button">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Container -->
+    <div class="quiz-container" hidden>
+        <h2 class="question-title"></h2>
+        <div class="answers">
+            <button id="answerOne"></button>
+            <button id="answerTwo"></button>
+            <button id="answerThree"></button>
+            <button id="answerFour"></button>
         </div>
     </div>
 
