@@ -2,6 +2,7 @@
 
 var startBtn = document.querySelector(".start-button");
 var homeDiv = document.querySelector(".home-container");
+var homeTitle = document.querySelector(".home-title");
 var startBtn = document.querySelector(".start-button");
 var quizDiv = document.querySelector(".quiz-container");
 var questionTitle = document.querySelector(".question-title");
@@ -12,9 +13,17 @@ var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
 var answerFour = document.querySelector("#answerFour");
+var endContainer = document.querySelector(".end-container");
+var endPara = document.querySelector(".end-para");
+var initialsBtn = document.querySelector("#initial-submit");
+var initialsAnswer = document.querySelector("#initials");
 var timer = 75;
 var timeStart = false;
 var timeRemain = true;
+var highScore = [];
+
+// Setting score
+var score = 0;
 
 // Question Index
 var i = 0;
@@ -67,6 +76,7 @@ var questionsArr = [
       "3. for loop",
       "4. console.log",
     ],
+    correctAnswer: 3,
   },
 ];
 
@@ -75,9 +85,9 @@ var questionsArr = [
 var countdownTimer = setInterval(countdownStart, 1000);
 
 function countdownStart() {
-  if (timeStart) {
-    timer--;
-  } else if (timer <= 0) {
+  if (timeStart) timer--;
+  if (timer <= 0) {
+    endQuiz();
     timer = 0;
   }
   timerSpan.innerHTML = timer;
@@ -85,7 +95,7 @@ function countdownStart() {
 
 // Start button eventlistener
 startBtn.addEventListener("click", function () {
-  homeDiv.remove();
+  homeDiv.style.display = "none";
   quizDiv.style.display = "flex";
   countdownStart();
   timeStart = true;
@@ -124,6 +134,8 @@ answerOne.addEventListener("click", function (e) {
     }, 1000);
   }
 
+  score = timer;
+
   // If/Else conditional that calls endQuiz if array length is over or increments to next question if not over
   if (i >= questionsArr.length - 1) {
     endQuiz();
@@ -151,6 +163,8 @@ answerTwo.addEventListener("click", function (e) {
     }, 1000);
   }
 
+  score = timer;
+
   if (i >= questionsArr.length - 1) {
     endQuiz();
   } else {
@@ -176,6 +190,8 @@ answerThree.addEventListener("click", function (e) {
       answerSpan.hidden = true;
     }, 1000);
   }
+
+  score = timer;
 
   if (i >= questionsArr.length - 1) {
     endQuiz();
@@ -203,6 +219,8 @@ answerFour.addEventListener("click", function (e) {
     }, 1000);
   }
 
+  score = timer;
+
   if (i >= questionsArr.length - 1) {
     endQuiz();
   } else {
@@ -214,5 +232,19 @@ answerFour.addEventListener("click", function (e) {
 // End quiz function
 
 function endQuiz() {
-  console.log("Game over!");
+  quizDiv.style.display = "none";
+  startBtn.style.display = "none";
+  endContainer.style.display = "flex";
+  endPara.innerText = "Your final score is: " + score;
+
+  initialsBtn.addEventListener("click", function () {
+    highScore.push(initialsAnswer.value + " " + score);
+    viewScore();
+  });
+}
+
+// View high scores function
+
+function viewScore() {
+  console.log("View Score");
 }

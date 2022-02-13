@@ -13,16 +13,16 @@
     <!-- High score link and timer display-->
     <header>
         <div class="high-score">
-            <a href="#">View high scores</a>
+            <button>View high scores</button>
         </div>
         <div class="timer-container">
             Time: <span class="timer">75</span>
         </div>
     </header>
 
-    <!-- Main container with quiz start-->
+    <!-- Main container for quiz start/end-->
     <div class="home-container">
-        <h1>Coding Quiz Challenge</h1>
+        <h1 class="home-title">Coding Quiz Challenge</h1>
         <p>Try to answer the following code-related questions within the time limit.
             Keep in mind that incorrect answers will
             penalize your score/time
@@ -42,6 +42,18 @@
         </div>
         <span class="answer-span" hidden="true"></span>
     </div>
+
+    <!-- End Game -->
+    <div class="end-container" style="display: none;">
+        <h1>All Done!</h1>
+        <p class="end-para"></p>
+        <form>
+            <label for="initials">Initials: </label>
+            <input type="text" id="initials">
+            <input type="button" value="submit" id="initial-submit">
+        </form>
+    </div>
+
 
     <script src="./assets/js/script.js"></script>
 </body>
