@@ -92,13 +92,17 @@ header {
   color: white;
 }
 
+.start-button:hover {
+  background-color: violet;
+}
+
 /* Home Container Styling Ends */
 
 /* Quiz Container Styling Starts */
 
 .quiz-container {
-  width: 30%;
   height: 600px;
+  width: 30%;
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
@@ -107,7 +111,7 @@ header {
 
 .quiz-container button {
   display: flex;
-  width: 150px;
+  width: 250px;
   background-color: #241654;
   color: white;
   border-radius: 15px;
@@ -115,10 +119,25 @@ header {
   padding: 15px;
   font-size: 18px;
   margin: 10px 0 10px 0px;
+  text-align: left;
+}
+
+.quiz-container button:hover {
+  background-color: violet;
 }
 
 .question-title {
   font-size: 32px;
   font-weight: bold;
   align-self: flex-start;
+}
+
+.answer-span {
+  font-size: 24px;
+  font-style: italic;
+  text-align: left;
+  border-top: 1px solid grey;
+  color: grey;
+  width: 100%;
+  height: 0;
 }

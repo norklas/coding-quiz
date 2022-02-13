@@ -7,6 +7,7 @@ var quizDiv = document.querySelector(".quiz-container");
 var questionTitle = document.querySelector(".question-title");
 var timerSpan = document.querySelector(".timer");
 var answerDiv = document.querySelector(".answers");
+var answerSpan = document.querySelector(".answer-span");
 var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
 var answerThree = document.querySelector("#answerThree");
@@ -105,20 +106,113 @@ function showQuizQuestions() {
 
 answerOne.addEventListener("click", function (e) {
   var correctAnswer = questionsArr[i].correctAnswer;
-  console.log("correctAnswer " + correctAnswer);
+
+  if (correctAnswer === 0) {
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Correct";
+
+    // Timer to hide span
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  } else {
+    timer -= 15;
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Wrong";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  }
+
+  // If/Else conditional that calls endQuiz if array length is over or increments to next question if not over
+  if (i >= questionsArr.length - 1) {
+    endQuiz();
+  } else {
+    i++;
+    showQuizQuestions();
+  }
 });
 
 answerTwo.addEventListener("click", function (e) {
   var correctAnswer = questionsArr[i].correctAnswer;
-  console.log("correctAnswer " + correctAnswer);
+
+  if (correctAnswer === 1) {
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Correct";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  } else {
+    timer -= 15;
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Wrong";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  }
+
+  if (i >= questionsArr.length - 1) {
+    endQuiz();
+  } else {
+    i++;
+    showQuizQuestions();
+  }
 });
 
 answerThree.addEventListener("click", function (e) {
   var correctAnswer = questionsArr[i].correctAnswer;
-  console.log("correctAnswer " + correctAnswer);
+
+  if (correctAnswer === 2) {
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Correct";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  } else {
+    timer -= 15;
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Wrong";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  }
+
+  if (i >= questionsArr.length - 1) {
+    endQuiz();
+  } else {
+    i++;
+    showQuizQuestions();
+  }
 });
 
 answerFour.addEventListener("click", function (e) {
   var correctAnswer = questionsArr[i].correctAnswer;
-  console.log("correctAnswer " + correctAnswer);
+
+  if (correctAnswer === 3) {
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Correct";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  } else {
+    timer -= 15;
+    answerSpan.hidden = false;
+    answerSpan.textContent = "Wrong";
+    setTimeout(function () {
+      answerSpan.hidden = true;
+    }, 1000);
+  }
+
+  if (i >= questionsArr.length - 1) {
+    endQuiz();
+  } else {
+    i++;
+    showQuizQuestions();
+  }
 });
+
+// End quiz function
+
+function endQuiz() {
+  console.log("Game over!");
+}
