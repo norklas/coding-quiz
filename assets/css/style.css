@@ -163,3 +163,16 @@ header {
   justify-content: center;
   text-align: center;
 }
+
+/* End Game Container Styling Ends */
+
+/* High Score Container Styling Begins */
+
+.score-container {
+  height: 600px;
+  width: 30%;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

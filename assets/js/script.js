@@ -2,12 +2,10 @@
 
 var startBtn = document.querySelector(".start-button");
 var homeDiv = document.querySelector(".home-container");
-var homeTitle = document.querySelector(".home-title");
 var startBtn = document.querySelector(".start-button");
 var quizDiv = document.querySelector(".quiz-container");
 var questionTitle = document.querySelector(".question-title");
 var timerSpan = document.querySelector(".timer");
-var answerDiv = document.querySelector(".answers");
 var answerSpan = document.querySelector(".answer-span");
 var answerOne = document.querySelector("#answerOne");
 var answerTwo = document.querySelector("#answerTwo");
@@ -17,10 +15,21 @@ var endContainer = document.querySelector(".end-container");
 var endPara = document.querySelector(".end-para");
 var initialsBtn = document.querySelector("#initial-submit");
 var initialsAnswer = document.querySelector("#initials");
+var scoreContainer = document.querySelector(".score-container");
+var scoreDiv = document.querySelector(".scores");
+var header = document.querySelector("header");
+var highScoreBtn = document.querySelector(".high-score-button");
+var goBackBtn = document.querySelector(".go-back-btn");
+var clearBtn = document.querySelector(".clear-btn");
+
 var timer = 75;
 var timeStart = false;
 var timeRemain = true;
-var highScore = [];
+// Blank array for score listing
+var scoreList = [];
+
+// Checking localStorage for score information before code is ran
+getScore();
 
 // Setting score
 var score = 0;
@@ -98,8 +107,15 @@ startBtn.addEventListener("click", function () {
   homeDiv.style.display = "none";
   quizDiv.style.display = "flex";
   countdownStart();
-  timeStart = true;
   showQuizQuestions();
+  timeStart = true;
+});
+
+// View High Score button eventlistener
+highScoreBtn.addEventListener("click", function () {
+  homeDiv.style.display = "none";
+  quizDiv.style.display = "none";
+  viewScore();
 });
 
 // Function to display quiz questions
@@ -232,19 +248,81 @@ answerFour.addEventListener("click", function (e) {
 // End quiz function
 
 function endQuiz() {
+  clearInterval(countdownTimer);
+  timerSpan.innerText = score;
   quizDiv.style.display = "none";
   startBtn.style.display = "none";
   endContainer.style.display = "flex";
   endPara.innerText = "Your final score is: " + score;
 
   initialsBtn.addEventListener("click", function () {
-    highScore.push(initialsAnswer.value + " " + score);
+    var playerInitials = initialsAnswer.value.trim();
+    var newScore = {
+      player: playerInitials,
+      score: score,
+    };
+
+    scoreList.push(newScore);
+    saveScore();
     viewScore();
   });
+}
+
+// Getting scores from local storage
+function getScore() {
+  var storedScore = JSON.parse(localStorage.getItem("highScore"));
+  if (storedScore !== null) {
+    scoreList = storedScore;
+  }
+}
+
+// Saving scores from local storage
+function saveScore() {
+  localStorage.setItem("highScore", JSON.stringify(scoreList));
 }
 
 // View high scores function
 
 function viewScore() {
-  console.log("View Score");
+  header.style.display = "none";
+  endContainer.style.display = "none";
+  scoreContainer.style.display = "flex";
+
+  scoreList.sort((a, b) => {
+    return b.score - a.score;
+  });
+
+  topTen = scoreList.slice(0, 10);
+
+  for (var i = 0; i < topTen.length; i++) {
+    var player = topTen[i].player;
+    var score = topTen[i].score;
+
+    scorePara = document.createElement("p");
+    scoreDiv.appendChild(scorePara);
+    scorePara.textContent = player + ": " + score;
+  }
+}
+
+// Go Back Button eventlistener
+goBackBtn.addEventListener("click", function (e) {
+  resetVar();
+  location.reload();
+});
+
+// Clear Button eventlistener
+clearBtn.addEventListener("click", function (e) {
+  scoreList = [];
+  localStorage.setItem("highScore", JSON.stringify(scoreList));
+  scoreDiv.removeChild(scorePara);
+  saveScore();
+});
+
+// Reset variables
+function resetVar() {
+  time = 75;
+  timeRemain = true;
+  timeStart = false;
+  i = 0;
+  score = 0;
 }
