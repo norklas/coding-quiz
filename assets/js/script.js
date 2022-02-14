@@ -314,7 +314,13 @@ goBackBtn.addEventListener("click", function (e) {
 clearBtn.addEventListener("click", function (e) {
   scoreList = [];
   localStorage.setItem("highScore", JSON.stringify(scoreList));
-  scoreDiv.removeChild(scorePara);
+  // Function to remove all children (Credit: https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/)
+  function removeAllChild(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+  removeAllChild(scoreDiv);
   saveScore();
 });
 

@@ -1,3 +1,5 @@
+/* CSS Reset */
+
 html {
   box-sizing: border-box;
   font-size: 16px;
@@ -36,8 +38,24 @@ img {
 
 /* CSS Styling Begins */
 
+/* Variables */
+:root {
+  --main-button-color: #241654;
+  --button-hover-color: violet;
+}
+
+button:not(.high-score-button):hover {
+  background-color: var(--button-hover-color);
+}
+
 * {
   font-family: sans-serif;
+}
+
+h1 {
+  margin-bottom: 15px;
+  font-size: 40px;
+  font-weight: bold;
 }
 
 /* Header Styling Begins */
@@ -53,7 +71,7 @@ header {
 
 .high-score button {
   background-color: white;
-  color: violet;
+  color: var(--button-hover-color);
   border-style: none;
   font-size: 16px;
   font-weight: bold;
@@ -78,12 +96,6 @@ header {
   text-align: center;
 }
 
-.home-container h1 {
-  margin-bottom: 15px;
-  font-size: 40px;
-  font-weight: bold;
-}
-
 .home-container p {
   font-size: 18px;
   line-height: 1.5;
@@ -97,12 +109,8 @@ header {
   border-style: none;
   padding: 15px;
   font-size: 18px;
-  background-color: #241654;
+  background-color: var(--main-button-color);
   color: white;
-}
-
-.start-button:hover {
-  background-color: violet;
 }
 
 /* Home Container Styling Ends */
@@ -121,7 +129,7 @@ header {
 .quiz-container button {
   display: flex;
   width: 250px;
-  background-color: #241654;
+  background-color: var(--main-button-color);
   color: white;
   border-radius: 15px;
   border-style: none;
@@ -129,10 +137,6 @@ header {
   font-size: 18px;
   margin: 10px 0 10px 0px;
   text-align: left;
-}
-
-.quiz-container button:hover {
-  background-color: violet;
 }
 
 .question-title {
@@ -161,7 +165,36 @@ header {
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left;
+}
+
+.end-container p {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 10px;
+}
+
+label {
+  font-size: 24px;
+  vertical-align: baseline;
+}
+
+#initial-submit {
+  background-color: var(--main-button-color);
+  border-style: none;
+  border-radius: 15px;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  width: 90px;
+}
+
+#initials {
+  height: 34px;
+  width: 300px;
 }
 
 /* End Game Container Styling Ends */
@@ -174,5 +207,25 @@ header {
   margin: 0 auto;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left;
 }
+
+.score-container p {
+  margin-bottom: 5px;
+  padding: 5px;
+  background-color: #b19cd9;
+  font-size: 20px;
+}
+
+.go-back-btn,
+.clear-btn {
+  background-color: var(--main-button-color);
+  border-style: none;
+  border-radius: 15px;
+  padding: 10px;
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* High Score Styling Ends */
